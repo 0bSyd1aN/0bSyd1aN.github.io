@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { motion, useMotionValue } from 'framer-motion';
 
-export const MagneticPill = ({ children, href, className = "" }) => {
+export const MagneticPill = ({ children, href, className = "", ...props }) => {
   const ref = useRef(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -21,6 +21,7 @@ export const MagneticPill = ({ children, href, className = "" }) => {
   return (
     <motion.a
       href={href}
+      {...props}
       ref={ref}
       style={{ x, y }}
       onMouseMove={handleMouseMove}

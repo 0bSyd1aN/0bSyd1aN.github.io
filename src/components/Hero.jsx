@@ -52,10 +52,10 @@ export const Hero = () => {
           </p>
 
           <div className="flex flex-wrap gap-6 justify-center">
-            <MagneticPill href="https://www.linkedin.com/in/sujan-r-v-142239247/">
+            <MagneticPill href="https://www.linkedin.com/in/sujan-r-v-2501b4292/" target="_blank" rel="noopener noreferrer">
               <Linkedin size={18} /> <span className="text-sm font-semibold">LinkedIn</span>
             </MagneticPill>
-            <MagneticPill href="https://github.com/0bSyd1aN">
+            <MagneticPill href="https://github.com/0bSyd1aN" target="_blank" rel="noopener noreferrer">
               <Github size={18} /> <span className="text-sm font-semibold">GitHub</span>
             </MagneticPill>
           </div>

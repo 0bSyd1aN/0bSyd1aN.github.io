@@ -6,13 +6,17 @@ import { Skills } from './components/Skills';
 import { Projects } from './components/Projects';
 import { Contact } from './components/Contact';
 import { MagneticPill } from './components/ui/MagneticPill';
+import { InteractiveParticles } from './components/ui/InteractiveParticles';
+import { HackingPrompts } from './components/ui/HackingPrompts';
 import { Mail, Menu, X } from 'lucide-react';
 
 export default function Portfolio() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <div className="min-h-screen text-white selection:bg-cyber-cyan/30 font-sans">
+    <div className="min-h-screen text-white selection:bg-cyber-cyan/30 font-sans relative">
+      <HackingPrompts />
+      <InteractiveParticles />
       <nav className="fixed top-0 w-full z-50 bg-cyber-black/50 backdrop-blur-xl border-b border-white/5">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <a href="#home" className="text-lg font-bold tracking-tighter text-white hover:text-cyber-cyan transition-colors z-50">
