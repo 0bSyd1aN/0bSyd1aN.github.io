@@ -9,22 +9,13 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply text-white font-sans overflow-x-hidden selection:bg-cyber-cyan/30 selection:text-cyber-cyan;
-    background-color: #030303;
-    background-image: 
-      radial-gradient(circle at 10% 20%, rgba(168, 85, 247, 0.15) 0%, transparent 40%),  /* Purple */
-      radial-gradient(circle at 90% 10%, rgba(59, 130, 246, 0.15) 0%, transparent 40%),  /* Blue */
-      radial-gradient(circle at 80% 80%, rgba(0, 255, 255, 0.15) 0%, transparent 40%),  /* Cyan */
-      radial-gradient(circle at 20% 90%, rgba(236, 72, 153, 0.15) 0%, transparent 40%),  /* Pink */
-      radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),   /* Indigo */
-      radial-gradient(circle at 85% 40%, rgba(16, 185, 129, 0.1) 0%, transparent 40%);   /* Emerald */
-    background-size: 120% 120%;
-    background-attachment: fixed;
-    animation: pulse-bg 15s ease infinite alternate;
+    @apply text-white font-sans overflow-x-hidden selection:bg-white/30 selection:text-white;
+    background-color: #000000;
+    cursor: auto;
   }
-  @keyframes pulse-bg {
-    0% { background-position: 0% 0%; }
-    100% { background-position: 10% 10%; }
+  
+  a, button, [role="button"], input, textarea, select {
+    cursor: pointer;
   }
 
   h1, h2, h3, h4, h5, h6 {

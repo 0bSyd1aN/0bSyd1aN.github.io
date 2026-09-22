@@ -1,22 +1,39 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
-import { Layers, Code, Brain, Zap, Database } from 'lucide-react';
+import { Layers, Code, Brain, Zap, Database, Smartphone, Server, Workflow, Figma, Activity } from 'lucide-react';
 import { SpotlightCard } from './ui/SpotlightCard';
 import { motion } from 'framer-motion';
 
 const skillsData = [
+  // Frontend & Mobile
   { name: 'React', category: 'Frontend' },
-  { name: 'HTML | CSS', category: 'Frontend' },
+  { name: 'Flutter', category: 'Mobile' },
+  { name: 'Tailwind CSS', category: 'Frontend' },
+  { name: 'UI/UX Design', category: 'Design' },
+  
+  // Backend & Lang
+  { name: 'Go (Golang)', category: 'Backend' },
+  { name: 'Node.js', category: 'Backend' },
+  { name: 'TypeScript', category: 'Lang' },
+  { name: 'Python', category: 'Lang' },
+
+  // Databases
+  { name: 'SQL', category: 'DB' },
+  { name: 'MySQL', category: 'DB' },
   { name: 'PostgreSQL', category: 'DB' },
   { name: 'MongoDB', category: 'DB' },
-  { name: 'TypeScript', category: 'Lang' },
-  { name: 'Express.js', category: 'Lang' },
-  { name: 'Python', category: 'Lang' },
-  { name: 'Node.js', category: 'Lang' },
+
+  // AI & Analytics
   { name: 'TensorFlow', category: 'AI' },
   { name: 'PyTorch', category: 'AI' },
   { name: 'Deep Learning', category: 'AI' },
   { name: 'OpenCV', category: 'AI' },
 
+  // Beyond Technical
+  { name: 'System Design', category: 'Architecture' },
+  { name: 'Agile Workflows', category: 'Core' },
+  { name: 'Problem Solving', category: 'Core' },
+  { name: 'Team Leadership', category: 'Core' }
 ];
 
 export const Skills = () => {
@@ -30,23 +47,28 @@ export const Skills = () => {
         className="max-w-7xl mx-auto"
       >
         <div className="mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">Technical Arsenal</h2>
-          <div className="h-1 w-20 bg-cyber-cyan rounded-full shadow-[0_0_10px_#00ffff]" />
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">Core Competencies</h2>
+          <div className="h-1 w-20 bg-white/20 rounded-full" />
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
           {skillsData.map((skill, i) => (
-            <SpotlightCard key={i} className="p-6 flex flex-col items-center justify-center gap-4 hover:bg-white/5 transition-colors group cursor-crosshair">
-              <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center text-white group-hover:scale-110 group-hover:bg-cyber-cyan/20 group-hover:text-cyber-cyan transition-all duration-300 shadow-[0_0_0_1px_rgba(255,255,255,0.1)] group-hover:shadow-[0_0_15px_rgba(0,255,255,0.3)]">
-                {skill.category === 'Frontend' && <Layers size={24} />}
-                {skill.category === 'Lang' && <Code size={24} />}
-                {skill.category === 'AI' && <Brain size={24} />}
-                {skill.category === 'Cloud' && <Zap size={24} />}
-                {skill.category === 'DB' && <Database size={24} />}
+            <SpotlightCard key={i} className="p-6 flex flex-col items-center justify-center gap-4 hover:bg-white/5 transition-colors group">
+              <div className="w-12 h-12 rounded-2xl bg-neutral-900/50 flex items-center justify-center text-neutral-400 group-hover:scale-110 group-hover:bg-white group-hover:text-black transition-all duration-300 shadow-[0_0_0_1px_rgba(255,255,255,0.05)]">
+                {skill.category === 'Frontend' && <Layers size={20} />}
+                {skill.category === 'Mobile' && <Smartphone size={20} />}
+                {skill.category === 'Lang' && <Code size={20} />}
+                {skill.category === 'Backend' && <Server size={20} />}
+                {skill.category === 'AI' && <Brain size={20} />}
+                {skill.category === 'Cloud' && <Zap size={20} />}
+                {skill.category === 'DB' && <Database size={20} />}
+                {skill.category === 'Architecture' && <Workflow size={20} />}
+                {skill.category === 'Design' && <Figma size={20} />}
+                {skill.category === 'Core' && <Activity size={20} />}
               </div>
               <div className="text-center">
-                <div className="font-bold text-white group-hover:text-cyber-cyan transition-colors">{skill.name}</div>
-                <div className="text-xs text-neutral-500 uppercase tracking-wider mt-1">{skill.category}</div>
+                <div className="font-medium text-neutral-300 group-hover:text-white transition-colors">{skill.name}</div>
+                <div className="text-[10px] text-neutral-500 uppercase tracking-widest mt-1.5">{skill.category}</div>
               </div>
             </SpotlightCard>
           ))}

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useRef } from 'react';
 import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
@@ -47,20 +48,27 @@ export const SpotlightCard = ({ children, className = "" }) => {
       ref={divRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
+      drag
+      dragConstraints={{ left: -10, right: 10, top: -10, bottom: 10 }}
+      dragElastic={0.1}
+      whileDrag={{ scale: 1.02, zIndex: 50 }}
       style={{
         rotateX,
         rotateY,
         transformStyle: "preserve-3d",
       }}
       className={cn(
-        "relative rounded-3xl border border-white/10 bg-cyber-dark/50 overflow-hidden group perspective-1000",
+        "relative rounded-2xl border border-neutral-800/50 bg-neutral-950/40 overflow-hidden group perspective-1000 cursor-grab active:cursor-grabbing backdrop-blur-md shadow-2xl shadow-black/50 transition-colors duration-500 hover:border-neutral-700/50 hover:bg-neutral-900/50",
         className
       )}
     >
+      {/* Inner top highlight for that glass bevel effect */}
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      
       <div
-        className="pointer-events-none absolute -inset-px opacity-0 transition duration-300 group-hover:opacity-100"
+        className="pointer-events-none absolute -inset-px opacity-0 transition duration-500 group-hover:opacity-100"
         style={{
-          background: `radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(0, 255, 255, 0.15), transparent 40%)`,
+          background: `radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.05), transparent 40%)`,
         }}
       />
       <div 

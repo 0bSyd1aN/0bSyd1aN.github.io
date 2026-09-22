@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import { Terminal } from 'lucide-react';
 import { SpotlightCard } from './ui/SpotlightCard';

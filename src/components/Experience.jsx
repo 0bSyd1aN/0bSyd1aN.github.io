@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import { motion } from 'framer-motion';
 import { SpotlightCard } from './ui/SpotlightCard';
@@ -6,13 +7,13 @@ const experience = [
   {
     company: 'StringLab Technologies pvt ltd',
     role: 'Full Stack Engineer Intern',
-    period: '11-2025 - 03-2026',
+    period: '11/2025 - 03/2026',
     desc: 'Engineered testable application features, resolved system defects, and supported scalable deployment efforts across the complete software development lifecycle.'
   },
   {
     company: 'StringLab Technologies pvt ltd',
     role: 'Full Stack Engineer',
-    period: '03-2026 - Present',
+    period: '03/2026 - Present',
     desc: 'Architecting end-to-end software solutions by driving system design, automating CI/CD pipelines, and establishing robust testing standards for enterprise delivery.'
   }
 ];

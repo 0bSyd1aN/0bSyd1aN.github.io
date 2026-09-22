@@ -1,8 +1,9 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useRef } from 'react';
-import { Mail, Send } from 'lucide-react';
+import { Mail, Send, Loader2, Check, X } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import { MagneticPill } from './ui/MagneticPill';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 // --- CONFIGURATION ---
 // REPLACE THESE WITH YOUR ACTUAL KEYS FROM EMAILJS DASHBOARD
@@ -34,82 +35,119 @@ export const Contact = () => {
       });
   };
 
-
-
   return (
-    <section id="contact" className="py-32 px-6 border-t border-white/5">
+    <section id="contact" className="py-32 px-6">
       <motion.div 
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.6 }}
-        className="max-w-3xl mx-auto text-center"
+        className="max-w-4xl mx-auto"
       >
-        <h2 className="text-4xl font-bold text-white mb-8 tracking-tight">Contact Me</h2>
-        <p className="text-neutral-400 mb-12">
-          Initialize encrypted transmission. Frequency open for collaboration.
-        </p>
+        <div className="mb-16 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">Let's Connect</h2>
+          <p className="text-neutral-400 text-lg max-w-xl mx-auto font-light">
+            Whether you have a question, a project idea, or just want to say hi, my inbox is always open.
+          </p>
+          <div className="h-1 w-20 bg-white/20 rounded-full mx-auto mt-8" />
+        </div>
 
-        <form ref={form} onSubmit={handleSubmit} className="space-y-6 text-left bg-cyber-black/50 p-8 rounded-3xl border border-white/10">
+        <form ref={form} onSubmit={handleSubmit} className="space-y-6 text-left bg-neutral-900/40 backdrop-blur-md p-8 md:p-12 rounded-3xl border border-neutral-800/50 shadow-2xl relative overflow-hidden">
           <div className="grid md:grid-cols-2 gap-6">
             <div>
-              <label className="block text-xs font-mono text-cyber-cyan mb-2">IDENTITY</label>
+              <label className="block text-[10px] font-mono tracking-widest text-neutral-500 mb-2 uppercase">Name</label>
               <input 
                 type="text" 
                 name="user_name"
-                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyber-cyan/50 focus:bg-white/10 transition-all"
-                placeholder="Enter Name"
+                className="w-full bg-black/50 border border-neutral-800 rounded-xl px-5 py-4 text-white text-sm focus:outline-none focus:border-neutral-500 focus:bg-neutral-900 transition-all shadow-inner"
+                placeholder="Jane Doe"
                 required
               />
             </div>
             <div>
-              <label className="block text-xs font-mono text-cyber-cyan mb-2">FREQUENCY</label>
+              <label className="block text-[10px] font-mono tracking-widest text-neutral-500 mb-2 uppercase">Email Address</label>
               <input 
                 type="email" 
                 name="user_email"
-                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyber-cyan/50 focus:bg-white/10 transition-all"
-                placeholder="Enter Email"
+                className="w-full bg-black/50 border border-neutral-800 rounded-xl px-5 py-4 text-white text-sm focus:outline-none focus:border-neutral-500 focus:bg-neutral-900 transition-all shadow-inner"
+                placeholder="jane@example.com"
                 required
               />
             </div>
           </div>
           
           <div>
-            <label className="block text-xs font-mono text-cyber-cyan mb-2">PAYLOAD</label>
+            <label className="block text-[10px] font-mono tracking-widest text-neutral-500 mb-2 uppercase">Message</label>
             <textarea 
-              rows={4}
+              rows={5}
               name="message"
-              className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyber-cyan/50 focus:bg-white/10 transition-all resize-none"
-              placeholder="Enter Message"
+              className="w-full bg-black/50 border border-neutral-800 rounded-xl px-5 py-4 text-white text-sm focus:outline-none focus:border-neutral-500 focus:bg-neutral-900 transition-all shadow-inner resize-none"
+              placeholder="Tell me about your project..."
               required
             />
           </div>
 
-          <div className="flex justify-end items-center gap-4">
-            {error && <span className="text-red-500 text-xs font-mono animate-pulse">{error}</span>}
+          <div className="flex justify-end items-center pt-4">
             <button 
               type="submit"
               disabled={isSending || isSent}
               className={`
-                relative px-8 py-3 rounded-full font-bold text-sm transition-all duration-300 flex items-center gap-2
-                ${isSent ? 'bg-green-500 text-black' : 'bg-cyber-cyan text-black hover:shadow-[0_0_20px_rgba(0,255,255,0.4)]'}
-                ${isSending ? 'opacity-70 cursor-wait' : ''}
+                relative h-12 w-32 rounded-xl font-medium text-sm transition-all duration-300 flex items-center justify-center overflow-hidden
+                ${isSent ? 'bg-emerald-500 text-black' : error ? 'bg-red-500 text-white' : 'bg-white text-black hover:bg-neutral-200 shadow-lg'}
+                ${isSending ? 'opacity-90 cursor-wait' : ''}
               `}
             >
-              {isSending ? (
-                <>TRANSMITTING...</>
-              ) : isSent ? (
-                <>TRANSMISSION CONFIRMED</>
-              ) : (
-                <>TRANSMIT DATA <Send size={16} /></>
-              )}
+              <AnimatePresence mode="wait">
+                {isSending ? (
+                  <motion.div
+                    key="sending"
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.5 }}
+                    className="absolute inset-0 flex items-center justify-center"
+                  >
+                    <Loader2 className="animate-spin" size={18} />
+                  </motion.div>
+                ) : isSent ? (
+                  <motion.div
+                    key="success"
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.5 }}
+                    className="absolute inset-0 flex items-center justify-center gap-2"
+                  >
+                    <Check size={18} strokeWidth={3} />
+                  </motion.div>
+                ) : error ? (
+                  <motion.div
+                    key="error"
+                    initial={{ opacity: 0, x: [0, -10, 10, -10, 10, 0] }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, scale: 0.5 }}
+                    transition={{ duration: 0.4 }}
+                    className="absolute inset-0 flex items-center justify-center gap-2"
+                  >
+                    <X size={18} strokeWidth={3} />
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="idle"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    className="absolute inset-0 flex items-center justify-center gap-2"
+                  >
+                    Submit <Send size={14} />
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </button>
           </div>
         </form>
 
         <div className="mt-16 flex justify-center">
           <MagneticPill href="mailto:sujanrv99@gmail.com">
-            <Mail size={16} /> sujanrv99@gmail.com
+            <Mail size={16} /> <span className="text-sm font-medium">sujanrv99@gmail.com</span>
           </MagneticPill>
         </div>
       </motion.div>
