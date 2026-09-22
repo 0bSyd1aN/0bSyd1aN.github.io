@@ -8,6 +8,7 @@ import { Contact } from './components/Contact';
 import { MagneticPill } from './components/ui/MagneticPill';
 import { InteractiveParticles } from './components/ui/InteractiveParticles';
 import { HackingPrompts } from './components/ui/HackingPrompts';
+import { CustomCursor } from './components/ui/CustomCursor';
 import { Mail, Menu, X } from 'lucide-react';
 
 export default function Portfolio() {
@@ -15,6 +16,7 @@ export default function Portfolio() {
 
   return (
     <div className="min-h-screen text-white selection:bg-cyber-cyan/30 font-sans relative">
+      <CustomCursor />
       <HackingPrompts />
       <InteractiveParticles />
       <nav className="fixed top-0 w-full z-50 bg-cyber-black/50 backdrop-blur-xl border-b border-white/5">
