@@ -5,40 +5,40 @@ import { motion } from 'framer-motion';
 
 const projects = [
   {
-    title: 'E-Commerce Store',
-    desc: 'Headless commerce architecture with real-time inventory syncing and stripe integration.',
-    tech: ['MongoDB','Express.js', 'React.js', 'Node.js', 'Stripe'] ,
-    highlight: 'MERN Stack',
+    title: 'Digital Muneem (Accounting)',
+    desc: 'Full-stack accounting platform with real-time financial tracking, multi-tenant architecture, and role-based access control supporting 100+ concurrent users.',
+    tech: ['Next.js', 'React', 'Node.js', 'PostgreSQL'],
+    highlight: 'Full Stack SaaS',
     statusColor: 'text-green-400',
     statusBg: 'bg-green-500/10',
     statusBorder: 'border-green-500/20'
   },
   {
-    title: 'Neural Style Transfer',
-    desc: 'VGG-19 implementation for high-fidelity artistic style transfer on video streams.',
-    tech: ['Python', 'Deep Learning', 'SSIM Index', 'OpenCV'],
-    highlight: 'Machine Learning',
-    statusColor: 'text-cyber-cyan',
-    statusBg: 'bg-cyber-cyan/10',
-    statusBorder: 'border-cyber-cyan/20'
-  },
-  {
-    title: 'Uber Analytics Pipeline',
-    desc: 'Distributed data processing system handling millions of ride events for geospatial visualization.',
-    tech: ['GCP', 'BigQuery', 'SQL', 'Python'],
-    highlight: 'Data Analytics',
+    title: 'Uber Data Analytics Platform',
+    desc: 'End-to-end automated ETL pipeline processing 1M+ ride records using Mage orchestration and GCP, reducing query latency by 40%.',
+    tech: ['Python', 'GCP', 'BigQuery', 'Mage', 'Looker'],
+    highlight: 'Data Engineering',
     statusColor: 'text-cyber-purple',
     statusBg: 'bg-cyber-purple/10',
     statusBorder: 'border-cyber-purple/20'
   },
   {
-    title: 'Attendance Management System',
-    desc: 'Optimized relational database schema for high-concurrency student attendance tracking.',
-    tech: ['SQL', 'Python', 'FastAPI'],
-    highlight: 'Database Management',
+    title: 'Mental Health Chatbot',
+    desc: 'Engineered a support chatbot utilizing TensorFlow for intent classification, backed by a Flask API and MySQL for secure interaction tracking.',
+    tech: ['Python', 'Flask', 'TensorFlow', 'MySQL'],
+    highlight: 'AI Integration',
     statusColor: 'text-orange-400',
     statusBg: 'bg-orange-500/10',
     statusBorder: 'border-orange-500/20'
+  },
+  {
+    title: 'Neural Style Transfer',
+    desc: 'Computer vision prototype employing VGG-19 CNN to fuse image content with artistic styles, optimized with gradient descent to minimize loss.',
+    tech: ['Python', 'TensorFlow', 'PyTorch', 'NumPy'],
+    highlight: 'Deep Learning',
+    statusColor: 'text-cyber-cyan',
+    statusBg: 'bg-cyber-cyan/10',
+    statusBorder: 'border-cyber-cyan/20'
   }
 ];
 
