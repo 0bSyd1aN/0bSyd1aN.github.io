@@ -4,10 +4,16 @@ import { SpotlightCard } from './ui/SpotlightCard';
 
 const experience = [
   {
-    company: 'StringLab',
+    company: 'StringLab Technologies pvt ltd',
     role: 'Full Stack Engineer Intern',
-    period: '2025 - Present',
-    desc: 'Architecting scalable frontend systems and optimizing backend data pipelines for high-traffic applications.'
+    period: '11-2025 - 03-2026',
+    desc: 'Engineered testable application features, resolved system defects, and supported scalable deployment efforts across the complete software development lifecycle.'
+  },
+  {
+    company: 'StringLab Technologies pvt ltd',
+    role: 'Full Stack Engineer',
+    period: '03-2026 - Present',
+    desc: 'Architecting end-to-end software solutions by driving system design, automating CI/CD pipelines, and establishing robust testing standards for enterprise delivery.'
   }
 ];
 
